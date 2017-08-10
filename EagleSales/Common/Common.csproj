@@ -30,8 +30,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +60,115 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\ControlHelper.cs" />
+    <Compile Include="Helper\ConvertToTable.cs" />
+    <Compile Include="Helper\ExtDecimal.cs" />
+    <Compile Include="Helper\ExtString.cs" />
+    <Compile Include="Helper\KeyValues\Estado.cs" />
+    <Compile Include="Helper\KeyValues\FormAction.cs" />
+    <Compile Include="Helper\KeyValues\TipoSujeto.cs" />
+    <Compile Include="Helper\PersonHelper.cs" />
+    <Compile Include="Model\Clinica\CLIt01_paciente.cs" />
+    <Compile Include="Model\Clinica\CLIt02_actividad.cs" />
+    <Compile Include="Model\Clinica\CLIt03_atencion.cs" />
+    <Compile Include="Model\Clinica\CLIt04_atencion_dtl.cs" />
+    <Compile Include="Model\Clinica\CLIt05_antece_alergia.cs" />
+    <Compile Include="Model\Clinica\CLIt06_tipo_especialidad.cs" />
+    <Compile Include="Model\Clinica\CLIt07_especialidad_medica.cs" />
+    <Compile Include="Model\Clinica\CLIt08_funciones_vitales.cs" />
+    <Compile Include="Model\Clinica\CLIt09_anamnesis.cs" />
+    <Compile Include="Model\Clinica\CLIt10_examen_fisico.cs" />
+    <Compile Include="Model\Clinica\CLIt11_estudio_complementario.cs" />
+    <Compile Include="Model\Clinica\CLIt12_archivo_complementario.cs" />
+    <Compile Include="Model\Clinica\CLIt13_laboratorio.cs" />
+    <Compile Include="Model\Clinica\CLIt14_img_laboratorio.cs" />
+    <Compile Include="Model\Clinica\CLIt15_diagnostico.cs" />
+    <Compile Include="Model\Clinica\CLIt16_cie10.cs" />
+    <Compile Include="Model\Clinica\CLIt17_tratamiento.cs" />
+    <Compile Include="Model\Clinica\CLIt18_evolucion.cs" />
+    <Compile Include="Model\Clinica\CLIt19_cita.cs" />
+    <Compile Include="Model\EagleContext.cs" />
+    <Compile Include="Model\General\GRLt01_parametro.cs" />
+    <Compile Include="Model\General\GRLt02_estado.cs" />
+    <Compile Include="Model\General\GRLt03_horario.cs" />
+    <Compile Include="Model\Maestro\MSTt01_medio_pago.cs" />
+    <Compile Include="Model\Maestro\MSTt02_descuento.cs" />
+    <Compile Include="Model\Maestro\MSTt03_tipo_orden.cs" />
+    <Compile Include="Model\Maestro\MSTt04_canal_vta.cs" />
+    <Compile Include="Model\Maestro\MSTt05_razon.cs" />
+    <Compile Include="Model\Maestro\MSTt06_impuesto.cs" />
+    <Compile Include="Model\Maestro\MSTt07_estado_civil.cs" />
+    <Compile Include="Model\Maestro\MSTt08_location.cs" />
+    <Compile Include="Model\Maestro\MSTt09_tipo_location.cs" />
+    <Compile Include="Model\Persona\PERt01_usuario.cs" />
+    <Compile Include="Model\Persona\PERt02_cliente.cs" />
+    <Compile Include="Model\Persona\PERt03_proveedor.cs" />
+    <Compile Include="Model\Persona\PERt04_empleado.cs" />
+    <Compile Include="Model\Producto\PROt01_marca.cs" />
+    <Compile Include="Model\Producto\PROt02_modelo.cs" />
+    <Compile Include="Model\Producto\PROt03_familia.cs" />
+    <Compile Include="Model\Producto\PROt04_subfamilia.cs" />
+    <Compile Include="Model\Producto\PROt05_grupo_prod.cs" />
+    <Compile Include="Model\Producto\PROt06_clase_prod.cs" />
+    <Compile Include="Model\Producto\PROt07_tipo_prod.cs" />
+    <Compile Include="Model\Producto\PROt08_precio_prod.cs" />
+    <Compile Include="Model\Producto\PROt09_producto.cs" />
+    <Compile Include="Model\Producto\PROt10_receta.cs" />
+    <Compile Include="Model\Producto\PROt11_receta_dtl.cs" />
+    <Compile Include="Model\Producto\PROt12_combo.cs" />
+    <Compile Include="Model\Producto\PROt13_combo_dtl.cs" />
+    <Compile Include="Model\Producto\PROt14_combo_grupo.cs" />
+    <Compile Include="Model\Producto\PROt15_receta_grupo.cs" />
+    <Compile Include="Model\Sunat\SNTt01_tipo_medio_pago.cs" />
+    <Compile Include="Model\Sunat\SNTt02_tipo_doc_identidad.cs" />
+    <Compile Include="Model\Sunat\SNTt03_entidad_financiera.cs" />
+    <Compile Include="Model\Sunat\SNTt04_tipo_moneda.cs" />
+    <Compile Include="Model\Sunat\SNTt05_tipo_existencia.cs" />
+    <Compile Include="Model\Sunat\SNTt06_unidad_medida.cs" />
+    <Compile Include="Model\Sunat\SNTt07_tipo_intangible.cs" />
+    <Compile Include="Model\Sunat\SNTt08_codigo_libro.cs" />
+    <Compile Include="Model\Sunat\SNTt09_cta_contable.cs" />
+    <Compile Include="Model\Sunat\SNTt10_tipo_comprobante.cs" />
+    <Compile Include="Model\Sunat\SNTt11_aduana.cs" />
+    <Compile Include="Model\Sunat\SNTt12_tipo_operacion.cs" />
+    <Compile Include="Model\Sunat\SNTt13_tipo_actividad.cs" />
+    <Compile Include="Model\Sunat\SNTt14_nacionalidad.cs" />
+    <Compile Include="Model\Sunat\SNTt15_via.cs" />
+    <Compile Include="Model\Sunat\SNTt16_zona.cs" />
+    <Compile Include="Model\Sunat\SNTt17_tipo_trabajador.cs" />
+    <Compile Include="Model\Sunat\SNTt18_situacion_educativa.cs" />
+    <Compile Include="Model\Sunat\SNTt19_ocupacion.cs" />
+    <Compile Include="Model\Sunat\SNTt20_regimen_pensionario.cs" />
+    <Compile Include="Model\Sunat\SNTt21_condicion_laboral.cs" />
+    <Compile Include="Model\Sunat\SNTt22_periodo_remuneracion.cs" />
+    <Compile Include="Model\Sunat\SNTt23_salud_eps.cs" />
+    <Compile Include="Model\Sunat\SNTt24_situacion.cs" />
+    <Compile Include="Model\Sunat\SNTt25_motivo_baja.cs" />
+    <Compile Include="Model\Sunat\SNTt26_modalidad_formativa.cs" />
+    <Compile Include="Model\Sunat\SNTt27_vinculo_familiar.cs" />
+    <Compile Include="Model\Sunat\SNTt28_suspencion_laboral.cs" />
+    <Compile Include="Model\Sunat\SNTt29_regimen_salud.cs" />
+    <Compile Include="Model\Sunat\SNTt30_regimen_laboral.cs" />
+    <Compile Include="Model\Sunat\SNTt31_departamento.cs" />
+    <Compile Include="Model\Sunat\SNTt32_provincia.cs" />
+    <Compile Include="Model\Sunat\SNTt33_distrito.cs" />
+    <Compile Include="Model\Transaccion\TNSt01_comp_recibido.cs" />
+    <Compile Include="Model\Transaccion\TNSt02_comp_recibido_dtl.cs" />
+    <Compile Include="Model\Transaccion\TNSt03_comp_recibido_estado.cs" />
+    <Compile Include="Model\Transaccion\TNSt04_comp_emitido.cs" />
+    <Compile Include="Model\Transaccion\TNSt05_comp_emitido_dtl.cs" />
+    <Compile Include="Model\Transaccion\TNSt06_comp_emitido_estado.cs" />
+    <Compile Include="Model\Transaccion\TNSt07_medio_pago_dtl.cs" />
+    <Compile Include="Model\Transaccion\TNSt08_descuento_dtl.cs" />
+    <Compile Include="Model\Transaccion\TNSt09_numeracion.cs" />
+    <Compile Include="Model\Transaccion\TNSt10_motivo_traslado.cs" />
+    <Compile Include="Model\Contabilidad\TOTt01_total_diario_vta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
