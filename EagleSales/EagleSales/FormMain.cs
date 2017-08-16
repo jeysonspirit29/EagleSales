@@ -1,5 +1,5 @@
 ﻿using Common.Helper.KeyValues;
-using EagleSales.ComprobanteEmitido;
+using EagleSales.Transaccion.Comprobante;
 using MetroFramework.Forms;
 using System;
 using System.Windows.Forms;

@@ -65,12 +65,6 @@
     <Compile Include="Buscadores\FormBuscarProducto.Designer.cs">
       <DependentUpon>FormBuscarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComprobanteEmitido\FormAddEditCompEmitido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ComprobanteEmitido\FormAddEditCompEmitido.Designer.cs">
-      <DependentUpon>FormAddEditCompEmitido.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,14 +73,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaccion\Comprobante\FormAddEditCompEmitido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaccion\Comprobante\FormAddEditCompEmitido.Designer.cs">
+      <DependentUpon>FormAddEditCompEmitido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaccion\MedioDePagoDtl\FormMedioDePagoDtl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaccion\MedioDePagoDtl\FormMedioDePagoDtl.Designer.cs">
+      <DependentUpon>FormMedioDePagoDtl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Buscadores\FormBuscarCliente.resx">
       <DependentUpon>FormBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscadores\FormBuscarProducto.resx">
       <DependentUpon>FormBuscarProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ComprobanteEmitido\FormAddEditCompEmitido.resx">
-      <DependentUpon>FormAddEditCompEmitido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -101,6 +104,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Transaccion\Comprobante\FormAddEditCompEmitido.resx">
+      <DependentUpon>FormAddEditCompEmitido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaccion\MedioDePagoDtl\FormMedioDePagoDtl.resx">
+      <DependentUpon>FormMedioDePagoDtl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,5 +141,6 @@
     <Content Include="Resources\on-off-power-x32.png" />
     <Content Include="Resources\plus_circle_white_x24.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

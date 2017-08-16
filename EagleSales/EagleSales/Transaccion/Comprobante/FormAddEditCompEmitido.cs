@@ -5,6 +5,7 @@ using Common.Helper;
 using Common.Helper.KeyValues;
 using Common.Model;
 using EagleSales.Buscadores;
+using EagleSales.Transaccion.MedioDePagoDtl;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
 using System;
@@ -13,7 +14,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace EagleSales.ComprobanteEmitido
+namespace EagleSales.Transaccion.Comprobante
 {
     public partial class FormAddEditCompEmitido : MetroForm
     {
@@ -1159,6 +1160,11 @@ namespace EagleSales.ComprobanteEmitido
         #endregion
 
         #endregion
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            new FormMedioDePagoDtl().ShowDialog();
+        }
     }
 }
 
