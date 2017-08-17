@@ -20,7 +20,7 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
     public partial class FormMedioDePagoDtl : MetroForm
     {
         IEnumerable<MSTt01_medio_pago> _mediosDePago = null;
-        decimal _mtoTotal = 0;
+        decimal _mtoTotal = 1;
 
         public FormMedioDePagoDtl(decimal mtoTotal)
         {

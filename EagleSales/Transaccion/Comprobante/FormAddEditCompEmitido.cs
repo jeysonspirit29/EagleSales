@@ -564,7 +564,7 @@ namespace EagleSales.Transaccion.Comprobante
             }
             DefinirCabeceraGridMedioPago();
         }
-
+    
         private void SetProducto(PROt09_producto producto)
         {
             try
