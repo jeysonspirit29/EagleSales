@@ -11,7 +11,15 @@ namespace Persistence.Conexion
     {
         public static string GetConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["EagleContext"].ConnectionString;
+            try
+            {
+                return ConfigurationManager.ConnectionStrings["EagleContext"].ConnectionString;
+            }
+            catch (Exception)
+            {
+
+                return "";
+            }
         }
     }
 }

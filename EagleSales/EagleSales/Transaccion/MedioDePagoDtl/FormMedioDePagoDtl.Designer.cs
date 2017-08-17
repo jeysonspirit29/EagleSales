@@ -30,11 +30,13 @@
         {
             this.tabMedioDePagoDtl = new MetroFramework.Controls.MetroTabControl();
             this.tabPagPrincipal = new MetroFramework.Controls.MetroTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabPagOtros = new MetroFramework.Controls.MetroTabPage();
             this.btnCargar = new System.Windows.Forms.Button();
             this.lblTipoDeCambio = new MetroFramework.Controls.MetroLabel();
             this.txtTipoDeCambio = new MetroFramework.Controls.MetroTextBox();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.cboMoneda = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             this.txtMtoActualMedioPago = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
@@ -47,11 +49,12 @@
             this.dgvMedioPago = new System.Windows.Forms.DataGridView();
             this.txtMtoMedioPago = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.cboMedioPago = new MetroFramework.Controls.MetroComboBox();
+            this.cboMedioDePago = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblMtoTotal = new System.Windows.Forms.Label();
             this.tabMedioDePagoDtl.SuspendLayout();
             this.tabPagPrincipal.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPagOtros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioPago)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +73,7 @@
             // tabPagPrincipal
             // 
             this.tabPagPrincipal.BackColor = System.Drawing.Color.AliceBlue;
-            this.tabPagPrincipal.Controls.Add(this.tableLayoutPanel1);
+            this.tabPagPrincipal.Controls.Add(this.panel1);
             this.tabPagPrincipal.HorizontalScrollbarBarColor = true;
             this.tabPagPrincipal.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPagPrincipal.HorizontalScrollbarSize = 10;
@@ -84,13 +87,34 @@
             this.tabPagPrincipal.VerticalScrollbarHighlightOnWheel = false;
             this.tabPagPrincipal.VerticalScrollbarSize = 10;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Location = new System.Drawing.Point(14, 15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(796, 240);
+            this.panel1.TabIndex = 57;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(281, 65);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(198, 92);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
             // tabPagOtros
             // 
             this.tabPagOtros.BackColor = System.Drawing.Color.AliceBlue;
             this.tabPagOtros.Controls.Add(this.btnCargar);
             this.tabPagOtros.Controls.Add(this.lblTipoDeCambio);
             this.tabPagOtros.Controls.Add(this.txtTipoDeCambio);
-            this.tabPagOtros.Controls.Add(this.metroComboBox1);
+            this.tabPagOtros.Controls.Add(this.cboMoneda);
             this.tabPagOtros.Controls.Add(this.metroLabel25);
             this.tabPagOtros.Controls.Add(this.txtMtoActualMedioPago);
             this.tabPagOtros.Controls.Add(this.metroLabel18);
@@ -103,7 +127,7 @@
             this.tabPagOtros.Controls.Add(this.dgvMedioPago);
             this.tabPagOtros.Controls.Add(this.txtMtoMedioPago);
             this.tabPagOtros.Controls.Add(this.metroLabel14);
-            this.tabPagOtros.Controls.Add(this.cboMedioPago);
+            this.tabPagOtros.Controls.Add(this.cboMedioDePago);
             this.tabPagOtros.Controls.Add(this.metroLabel13);
             this.tabPagOtros.HorizontalScrollbarBarColor = true;
             this.tabPagOtros.HorizontalScrollbarHighlightOnWheel = false;
@@ -172,17 +196,17 @@
             this.txtTipoDeCambio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtTipoDeCambio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroComboBox1
+            // cboMoneda
             // 
-            this.metroComboBox1.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 19;
-            this.metroComboBox1.Location = new System.Drawing.Point(337, 32);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(154, 25);
-            this.metroComboBox1.TabIndex = 78;
-            this.metroComboBox1.UseSelectable = true;
-            this.metroComboBox1.UseStyleColors = true;
+            this.cboMoneda.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cboMoneda.FormattingEnabled = true;
+            this.cboMoneda.ItemHeight = 19;
+            this.cboMoneda.Location = new System.Drawing.Point(337, 32);
+            this.cboMoneda.Name = "cboMoneda";
+            this.cboMoneda.Size = new System.Drawing.Size(154, 25);
+            this.cboMoneda.TabIndex = 78;
+            this.cboMoneda.UseSelectable = true;
+            this.cboMoneda.UseStyleColors = true;
             // 
             // metroLabel25
             // 
@@ -393,17 +417,17 @@
             this.metroLabel14.Text = "Monto";
             this.metroLabel14.UseCustomBackColor = true;
             // 
-            // cboMedioPago
+            // cboMedioDePago
             // 
-            this.cboMedioPago.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.cboMedioPago.FormattingEnabled = true;
-            this.cboMedioPago.ItemHeight = 19;
-            this.cboMedioPago.Location = new System.Drawing.Point(13, 32);
-            this.cboMedioPago.Name = "cboMedioPago";
-            this.cboMedioPago.Size = new System.Drawing.Size(191, 25);
-            this.cboMedioPago.TabIndex = 2;
-            this.cboMedioPago.UseSelectable = true;
-            this.cboMedioPago.UseStyleColors = true;
+            this.cboMedioDePago.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cboMedioDePago.FormattingEnabled = true;
+            this.cboMedioDePago.ItemHeight = 19;
+            this.cboMedioDePago.Location = new System.Drawing.Point(13, 32);
+            this.cboMedioDePago.Name = "cboMedioDePago";
+            this.cboMedioDePago.Size = new System.Drawing.Size(191, 25);
+            this.cboMedioDePago.TabIndex = 2;
+            this.cboMedioDePago.UseSelectable = true;
+            this.cboMedioDePago.UseStyleColors = true;
             // 
             // metroLabel13
             // 
@@ -415,34 +439,36 @@
             this.metroLabel13.Text = "Medio pago";
             this.metroLabel13.UseCustomBackColor = true;
             // 
-            // tableLayoutPanel1
+            // lblMtoTotal
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 11);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 243);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.lblMtoTotal.AutoSize = true;
+            this.lblMtoTotal.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMtoTotal.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblMtoTotal.Location = new System.Drawing.Point(343, 23);
+            this.lblMtoTotal.Name = "lblMtoTotal";
+            this.lblMtoTotal.Size = new System.Drawing.Size(120, 50);
+            this.lblMtoTotal.TabIndex = 57;
+            this.lblMtoTotal.Text = "label1";
+            this.lblMtoTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormMedioDePagoDtl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 396);
+            this.Controls.Add(this.lblMtoTotal);
             this.Controls.Add(this.tabMedioDePagoDtl);
             this.Name = "FormMedioDePagoDtl";
             this.Text = "Medio de pago detalle";
             this.Load += new System.EventHandler(this.FormMedioDePagoDtl_Load);
             this.tabMedioDePagoDtl.ResumeLayout(false);
             this.tabPagPrincipal.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tabPagOtros.ResumeLayout(false);
             this.tabPagOtros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioPago)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -463,12 +489,14 @@
         private System.Windows.Forms.DataGridView dgvMedioPago;
         private MetroFramework.Controls.MetroTextBox txtMtoMedioPago;
         private MetroFramework.Controls.MetroLabel metroLabel14;
-        private MetroFramework.Controls.MetroComboBox cboMedioPago;
+        private MetroFramework.Controls.MetroComboBox cboMedioDePago;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroLabel lblTipoDeCambio;
         private MetroFramework.Controls.MetroTextBox txtTipoDeCambio;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox cboMoneda;
         private System.Windows.Forms.Button btnCargar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblMtoTotal;
     }
 }

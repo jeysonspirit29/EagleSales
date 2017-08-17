@@ -1,4 +1,7 @@
-﻿using Common.Helper;
+﻿using BusinessLogic.Maestro;
+using BusinessLogic.Sunat;
+using Common.Helper;
+using Common.Helper.KeyValues;
 using Common.Model;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
@@ -16,8 +19,12 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
 {
     public partial class FormMedioDePagoDtl : MetroForm
     {
-        public FormMedioDePagoDtl()
+        IEnumerable<MSTt01_medio_pago> _mediosDePago = null;
+        decimal _mtoTotal = 0;
+
+        public FormMedioDePagoDtl(decimal mtoTotal)
         {
+            _mtoTotal = mtoTotal;
             InitializeComponent();
         }
 
@@ -52,6 +59,13 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
 
         void ConfigurarControles()
         {
+            #region Label
+            //lblMtoTotal.AutoSize = false;
+            //lblMtoTotal.TextAlign = ContentAlignment.MiddleRight;
+            //lblMtoTotal.Anchor = AnchorStyles.Left;
+
+
+            #endregion
 
             #region Grilla
             var medioDePagoDtlHeader = new List<TNSt07_medio_pago_dtl>();
@@ -67,6 +81,31 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
             DefinirCabeceraGridMedioPago();
             ControlHelper.ConfigurarGrilla(dgvMedioPago);
 
+            #endregion
+
+            #region Layout
+            panel1.AutoScroll = true;
+            panel1.AutoSize = false;
+
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel1.AutoScroll = false;
+
+            tableLayoutPanel1.RowStyles.Clear();
+            tableLayoutPanel1.ColumnStyles.Clear();
+
+            #endregion
+
+
+
+            #region Combos
+
+            cboMoneda.DropDownWidth = 250;
+            cboMedioDePago.DropDownWidth = 250;
+
+            cboMoneda.DropDownHeight = 400;
+            cboMedioDePago.DropDownHeight = 400;
             #endregion
 
             #region Pestaña Medio de Pago
@@ -93,7 +132,45 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
 
         void SetInicio()
         {
+            //Indepencia de data
             ConfigurarControles();
+            //Dependencia débil
+            txtMtoTotalMedioPago.Text = _mtoTotal.ToString();
+            lblMtoTotal.Text = $"Total: S/ {_mtoTotal}";
+            //Cargar data
+            _mediosDePago = new MedioPagoBL().ListMedioPago(Estado.Activo);
+            //Dependencia de data
+            RenderMediosDePagoRapido();
+            CargarCombos();
+            //liberando memoria
+            _mediosDePago = null;
+
+        }
+
+        void CargarCombos()
+        {
+            try
+            {
+                cboMedioDePago.DisplayMember = "txt_desc";
+                cboMedioDePago.ValueMember = "id_medio_pago";
+                cboMedioDePago.DataSource = _mediosDePago;
+
+                cboMoneda.DisplayMember = "txt_desc";
+                cboMoneda.ValueMember = "id_tipo_moneda";
+                cboMoneda.DataSource = new MonedaBL().ListMoneda(Estado.Activo);
+
+                //VER LOS QUERYS ENVIADOS POR SQLPROFILER
+
+                /*
+                 008	008	EFECTIVO, POR OPERACIONES EN LAS QUE NO EXISTE OBLIGACIÓN DE UTILIZAR MEDIO DE PAGO
+                009	009	EFECTIVO, EN LOS DEMÁS CASOS
+                 */
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se pudo cargar los combos. Excepción: " + e.Message, "Mensaje Eagle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddMtoMedioPago_Click(object sender, EventArgs e)
@@ -101,30 +178,15 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
 
         }
 
-        class CommonItem
-        {
-            public int Value { get; set; }
-            public string Text { get; set; }
-        }
-
         private void FormMedioDePagoDtl_Load(object sender, EventArgs e)
         {
             SetInicio();
 
-            var medios = new List<CommonItem>()
-            {
-                new CommonItem(){ Value=1, Text="EFECTIVO" },
-                new CommonItem(){ Value=2, Text="VISA" },
-                new CommonItem(){ Value=3, Text="MASTERCAD" },
-                new CommonItem(){ Value=4, Text= "DÉBITO BCP" },
-                new CommonItem(){ Value=5, Text="CRÉDITO BCP" },
-                new CommonItem(){ Value=6, Text= "TARJETA RIPLEY" },
-                new CommonItem(){ Value=7, Text=  "TARJETA OH" },
-                new CommonItem(){ Value=8, Text= "TARJETA CON UN NOMBRE QUE DEBERÍA SER DEMASIADO LARGO COMO PARA MOSTRARSE POR COMPLETO EN EL BOTÓN" },
-                new CommonItem(){ Value=9, Text="TARJETA GHOST" },
-                new CommonItem(){ Value=10, Text="TARJETA VISA PLATINO" },
-                    new CommonItem(){ Value=11, Text="TARJETA VISA PLATINO 2" }
-            };
+        }
+
+        void RenderMediosDePagoRapido()
+        {
+            var medios = _mediosDePago.Where(x => x.cod_medio_pago != "0").ToList();
 
             int rowCount = 1, columnCount = 4;
             if (medios.Count > columnCount)
@@ -133,16 +195,13 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
             tableLayoutPanel1.ColumnCount = columnCount;
             tableLayoutPanel1.RowCount = rowCount;
 
-            tableLayoutPanel1.ColumnStyles.Clear();
-            tableLayoutPanel1.RowStyles.Clear();
-
             for (int i = 0; i < columnCount; i++)
             {
-                tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100 / columnCount));
+                tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100 / columnCount != 0 ? columnCount : 1));
             }
             for (int i = 0; i < rowCount; i++)
             {
-                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / rowCount));
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / rowCount != 0 ? columnCount : 1));
             }
 
             if (medios != null)
@@ -150,8 +209,10 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
                 {
                     var b = new MetroButton()
                     {
-                        Text = m.Text,
-                        Name = $"btn{m.Text.Substring(0, m.Text.Length > 10 ? 10 : m.Text.Length)}_{m.Value}"
+                        Height = 50,
+                        Font = new Font("Segoe UI", 20.0f),
+                        Text = m.txt_desc,
+                        Name = $"btn{m.txt_desc.Substring(0, m.txt_desc.Length > 10 ? 10 : m.txt_desc.Length)}_{m.id_medio_pago}"
                     };
                     b.Click += b_Click;
                     b.Dock = DockStyle.Fill;
@@ -161,9 +222,13 @@ namespace EagleSales.Transaccion.MedioDePagoDtl
 
         void b_Click(object sender, EventArgs e)
         {
+
             var b = sender as MetroButton;
             if (b != null)
+            {
+                //b.Enabled = false; panel
                 MessageBox.Show($"{b.Name.Substring(b.Name.LastIndexOf("_") + 1)}");
+            }
         }
     }
 }

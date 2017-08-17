@@ -44,6 +44,7 @@
     <Compile Include="Persona\ClienteBL.cs" />
     <Compile Include="Producto\ProductoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sunat\MonedaBL.cs" />
     <Compile Include="Sunat\TipoMedioPagoBL.cs" />
     <Compile Include="Sunat\UnidadMedidaBL.cs" />
   </ItemGroup>

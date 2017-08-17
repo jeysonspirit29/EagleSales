@@ -45,6 +45,8 @@
             this.txtPrecio = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cboUm = new MetroFramework.Controls.MetroComboBox();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.txtObservItem = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -74,6 +76,8 @@
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.txtMtoTotalMedioPago = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.btnDeleteMtoMedioPago = new System.Windows.Forms.Button();
+            this.btnAddMtoMedioPago = new System.Windows.Forms.Button();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.dgvMedioPago = new System.Windows.Forms.DataGridView();
             this.tglPagarTodoPorEfectivo = new MetroFramework.Controls.MetroToggle();
@@ -153,10 +157,6 @@
             this.metroLabel44 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel45 = new MetroFramework.Controls.MetroLabel();
             this.timerFade = new System.Windows.Forms.Timer(this.components);
-            this.btnDeleteItem = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
-            this.btnDeleteMtoMedioPago = new System.Windows.Forms.Button();
-            this.btnAddMtoMedioPago = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.tabComprobante.SuspendLayout();
             this.tabPagPrincipal.SuspendLayout();
@@ -419,6 +419,37 @@
             this.cboUm.TabIndex = 58;
             this.cboUm.UseSelectable = true;
             this.cboUm.UseStyleColors = true;
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteItem.FlatAppearance.BorderSize = 0;
+            this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteItem.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteItem.Image = global::EagleSales.Properties.Resources.delete_white_x24;
+            this.btnDeleteItem.Location = new System.Drawing.Point(688, 114);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(44, 39);
+            this.btnDeleteItem.TabIndex = 25;
+            this.btnDeleteItem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDeleteItem.UseVisualStyleBackColor = false;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnAddItem.FlatAppearance.BorderSize = 0;
+            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.ForeColor = System.Drawing.Color.White;
+            this.btnAddItem.Image = global::EagleSales.Properties.Resources.plus_circle_white_x24;
+            this.btnAddItem.Location = new System.Drawing.Point(688, 70);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(44, 38);
+            this.btnAddItem.TabIndex = 24;
+            this.btnAddItem.UseVisualStyleBackColor = false;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // txtObservItem
             // 
@@ -998,6 +1029,37 @@
             this.metroLabel16.Text = "Total:";
             this.metroLabel16.UseCustomBackColor = true;
             // 
+            // btnDeleteMtoMedioPago
+            // 
+            this.btnDeleteMtoMedioPago.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteMtoMedioPago.FlatAppearance.BorderSize = 0;
+            this.btnDeleteMtoMedioPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteMtoMedioPago.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteMtoMedioPago.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteMtoMedioPago.Image = global::EagleSales.Properties.Resources.delete_white_x24;
+            this.btnDeleteMtoMedioPago.Location = new System.Drawing.Point(169, 114);
+            this.btnDeleteMtoMedioPago.Name = "btnDeleteMtoMedioPago";
+            this.btnDeleteMtoMedioPago.Size = new System.Drawing.Size(44, 39);
+            this.btnDeleteMtoMedioPago.TabIndex = 6;
+            this.btnDeleteMtoMedioPago.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDeleteMtoMedioPago.UseVisualStyleBackColor = false;
+            this.btnDeleteMtoMedioPago.Click += new System.EventHandler(this.btnDeleteMtoMedioPago_Click);
+            // 
+            // btnAddMtoMedioPago
+            // 
+            this.btnAddMtoMedioPago.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnAddMtoMedioPago.FlatAppearance.BorderSize = 0;
+            this.btnAddMtoMedioPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMtoMedioPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMtoMedioPago.ForeColor = System.Drawing.Color.White;
+            this.btnAddMtoMedioPago.Image = global::EagleSales.Properties.Resources.plus_circle_white_x24;
+            this.btnAddMtoMedioPago.Location = new System.Drawing.Point(120, 114);
+            this.btnAddMtoMedioPago.Name = "btnAddMtoMedioPago";
+            this.btnAddMtoMedioPago.Size = new System.Drawing.Size(44, 39);
+            this.btnAddMtoMedioPago.TabIndex = 5;
+            this.btnAddMtoMedioPago.UseVisualStyleBackColor = false;
+            this.btnAddMtoMedioPago.Click += new System.EventHandler(this.btnAddMtoMedioPago_Click);
+            // 
             // metroLabel15
             // 
             this.metroLabel15.AutoSize = true;
@@ -1153,7 +1215,7 @@
             this.dtpFecCancelacion.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtpFecCancelacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecCancelacion.Location = new System.Drawing.Point(594, 12);
-            this.dtpFecCancelacion.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtpFecCancelacion.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpFecCancelacion.Name = "dtpFecCancelacion";
             this.dtpFecCancelacion.Size = new System.Drawing.Size(138, 25);
             this.dtpFecCancelacion.TabIndex = 64;
@@ -1165,7 +1227,7 @@
             this.dtpFecVencimiento.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtpFecVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecVencimiento.Location = new System.Drawing.Point(125, 12);
-            this.dtpFecVencimiento.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtpFecVencimiento.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpFecVencimiento.Name = "dtpFecVencimiento";
             this.dtpFecVencimiento.Size = new System.Drawing.Size(138, 25);
             this.dtpFecVencimiento.TabIndex = 62;
@@ -2141,7 +2203,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(65, 32);
             this.btnGuardar.TabIndex = 49;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -2390,68 +2452,6 @@
             // timerFade
             // 
             this.timerFade.Tick += new System.EventHandler(this.timerFade_Tick);
-            // 
-            // btnDeleteItem
-            // 
-            this.btnDeleteItem.BackColor = System.Drawing.Color.IndianRed;
-            this.btnDeleteItem.FlatAppearance.BorderSize = 0;
-            this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteItem.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteItem.Image = global::EagleSales.Properties.Resources.delete_white_x24;
-            this.btnDeleteItem.Location = new System.Drawing.Point(688, 114);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(44, 39);
-            this.btnDeleteItem.TabIndex = 25;
-            this.btnDeleteItem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDeleteItem.UseVisualStyleBackColor = false;
-            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnAddItem.FlatAppearance.BorderSize = 0;
-            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddItem.Image = global::EagleSales.Properties.Resources.plus_circle_white_x24;
-            this.btnAddItem.Location = new System.Drawing.Point(688, 70);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(44, 38);
-            this.btnAddItem.TabIndex = 24;
-            this.btnAddItem.UseVisualStyleBackColor = false;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
-            // btnDeleteMtoMedioPago
-            // 
-            this.btnDeleteMtoMedioPago.BackColor = System.Drawing.Color.IndianRed;
-            this.btnDeleteMtoMedioPago.FlatAppearance.BorderSize = 0;
-            this.btnDeleteMtoMedioPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteMtoMedioPago.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteMtoMedioPago.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteMtoMedioPago.Image = global::EagleSales.Properties.Resources.delete_white_x24;
-            this.btnDeleteMtoMedioPago.Location = new System.Drawing.Point(169, 114);
-            this.btnDeleteMtoMedioPago.Name = "btnDeleteMtoMedioPago";
-            this.btnDeleteMtoMedioPago.Size = new System.Drawing.Size(44, 39);
-            this.btnDeleteMtoMedioPago.TabIndex = 6;
-            this.btnDeleteMtoMedioPago.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDeleteMtoMedioPago.UseVisualStyleBackColor = false;
-            this.btnDeleteMtoMedioPago.Click += new System.EventHandler(this.btnDeleteMtoMedioPago_Click);
-            // 
-            // btnAddMtoMedioPago
-            // 
-            this.btnAddMtoMedioPago.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnAddMtoMedioPago.FlatAppearance.BorderSize = 0;
-            this.btnAddMtoMedioPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMtoMedioPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMtoMedioPago.ForeColor = System.Drawing.Color.White;
-            this.btnAddMtoMedioPago.Image = global::EagleSales.Properties.Resources.plus_circle_white_x24;
-            this.btnAddMtoMedioPago.Location = new System.Drawing.Point(120, 114);
-            this.btnAddMtoMedioPago.Name = "btnAddMtoMedioPago";
-            this.btnAddMtoMedioPago.Size = new System.Drawing.Size(44, 39);
-            this.btnAddMtoMedioPago.TabIndex = 5;
-            this.btnAddMtoMedioPago.UseVisualStyleBackColor = false;
-            this.btnAddMtoMedioPago.Click += new System.EventHandler(this.btnAddMtoMedioPago_Click);
             // 
             // FormAddEditCompEmitido
             // 

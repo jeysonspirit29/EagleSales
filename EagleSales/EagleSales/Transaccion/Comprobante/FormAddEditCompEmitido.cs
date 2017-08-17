@@ -35,7 +35,7 @@ namespace EagleSales.Transaccion.Comprobante
         private List<TNSt05_comp_emitido_dtl> details = null;
         private List<TNSt07_medio_pago_dtl> listMedioPago = null;
 
-        private int numDec = 3;
+        private int numDec = 2;
 
         //CARGADOS
         int porcImpuesto = 18;
@@ -982,6 +982,7 @@ namespace EagleSales.Transaccion.Comprobante
 
             cboUm.SelectedIndex = -1;
             cboMedioPago.SelectedIndex = cboMedioPago.Items.Count > 0 ? 0 : -1;
+            cboTipoComprobante.SelectedIndex = cboTipoComprobante.Items.Count > 0 ? 0 : -1;
             txtNombreCliente.Focus();
         }
 
@@ -1163,7 +1164,11 @@ namespace EagleSales.Transaccion.Comprobante
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            new FormMedioDePagoDtl().ShowDialog();
+            if (decimal.TryParse(txtMtoTotal.Text, out decimal mto) && mto > 0)
+                new FormMedioDePagoDtl(mto).ShowDialog();
+            else
+                MessageBox.Show("Al menos debe agregar un item", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Persona\ClienteDA.cs" />
     <Compile Include="Producto\ProductoDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sunat\MonedaDA.cs" />
     <Compile Include="Sunat\TipoMedioPagoDA.cs" />
     <Compile Include="Sunat\UnidadMedidaDA.cs" />
   </ItemGroup>
